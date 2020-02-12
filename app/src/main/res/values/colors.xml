@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
 <!--    custom colors-->
     <color name="colorBlack">#131212</color>
+
+    <color name="blueColor">#30454E</color>
 </resources>

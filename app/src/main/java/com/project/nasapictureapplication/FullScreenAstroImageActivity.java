@@ -32,6 +32,8 @@ public class FullScreenAstroImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_screen_astro_image);
 
+        getSupportActionBar().hide(); //hiding thr action bar only for this activity
+
         imageViewPager = findViewById(R.id.astro_image_view_pager); //getting the view pager
         pagerScrollView = findViewById(R.id.astro_pager_scroll_view); //getting the scroll view
 

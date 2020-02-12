@@ -28,6 +28,8 @@ public class AstroHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.astro_home_activity_layout);
 
+//        getActionBar().hide();
+
         astroPicsList = new ArrayList<>(); //array list for holding all the image urls
         //getting the recycler view
         recyclerView = findViewById(R.id.astro_home_activity_recycler_view);
