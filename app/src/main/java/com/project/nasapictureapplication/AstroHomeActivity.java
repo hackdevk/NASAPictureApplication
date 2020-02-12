@@ -13,7 +13,6 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 //this is the home activity or home screen of our app
 //which will show the grid image view of our app
@@ -37,7 +36,18 @@ public class AstroHomeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
-        astroHomeAdapter = new AstroHomeAdapter(this,astroPicsList);
+        final RecyclerViewAstroImageClickListener imageClickListener = new RecyclerViewAstroImageClickListener() {
+            @Override
+            public void onAstroImageClick(View view, int position) {
+                //open full screen activity with image clicked
+                Intent imageClickIntent  = new Intent(getApplicationContext(), FullScreenAstroImageActivity.class);
+                imageClickIntent.putExtra("POSITION",position);
+                imageClickIntent.putExtra("IMAGES",astroPicsList);
+                startActivity(imageClickIntent);
+            }
+        };
+
+        astroHomeAdapter = new AstroHomeAdapter(this,astroPicsList,imageClickListener);
         recyclerView.setAdapter(astroHomeAdapter);
 
         //calling the method for pics

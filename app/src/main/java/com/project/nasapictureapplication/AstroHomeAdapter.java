@@ -20,20 +20,23 @@ import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
 
-public class AstroHomeAdapter extends RecyclerView.Adapter<AstroHomeAdapter.PicturesHolder>{
+public class AstroHomeAdapter extends RecyclerView.Adapter<AstroHomeAdapter.PicturesHolder> {
 
     Context context;
     ArrayList<String> picsList;
+    RecyclerViewAstroImageClickListener astroImageClickListener;
 
-    public AstroHomeAdapter(Context context, ArrayList<String> picsList) {
+
+    public AstroHomeAdapter(Context context, ArrayList<String> picsList, RecyclerViewAstroImageClickListener astroImageClickListener) {
         this.context = context;
         this.picsList = picsList;
+        this.astroImageClickListener = astroImageClickListener;
     }
 
     @NonNull
     @Override
     public PicturesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View picsView = LayoutInflater.from(parent.getContext()).inflate(R.layout.astro_pics_grid_layout,parent,false);
+        View picsView = LayoutInflater.from(parent.getContext()).inflate(R.layout.astro_pics_grid_layout, parent, false);
         return new PicturesHolder(picsView);
     }
 
@@ -66,14 +69,22 @@ public class AstroHomeAdapter extends RecyclerView.Adapter<AstroHomeAdapter.Pict
             return 0;
     }
 
-    public class PicturesHolder extends RecyclerView.ViewHolder{
+    public class PicturesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
         ProgressBar progressBar;
 
+        //        iRecyclerViewImageClickListener  imageClickListener;
         public PicturesHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.astro_pics_grid_imageView);
-            progressBar = itemView.findViewById(R.id.astro__pics_grid_progress_bar);
+            progressBar = itemView.findViewById(R.id.astro_pics_grid_progress_bar);
+//            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            astroImageClickListener.onAstroImageClick(v, getAdapterPosition());
         }
     }
 }
