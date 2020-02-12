@@ -52,7 +52,7 @@ public class AstroHomeAdapter extends RecyclerView.Adapter<AstroHomeAdapter.Pict
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
                     }
-
+                    //this removes the progress bar when the image is finally loaded
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                         progressBar.setVisibility(View.GONE);

@@ -11,15 +11,15 @@ public class AstroModalClass {
     //    String imageType;
     String serviceVersion;
 
-    public AstroModalClass(String copyright, String date, String explanation, String hdurl, String mediaType, String title,
-                           String imageUrl, String serviceVersion) {
+    //for getting only thr details
+    public AstroModalClass(String copyright, String imageUrl, String date, String explanation, String mediaType, String title, String serviceVersion) {
         this.copyright = copyright;
+        this.imageUrl = imageUrl;
         this.date = date;
         this.explanation = explanation;
-        this.hdurl = hdurl;
         this.mediaType = mediaType;
         this.title = title;
-        this.imageUrl = imageUrl;
+//        this.imageType = imageType;
         this.serviceVersion = serviceVersion;
     }
 
